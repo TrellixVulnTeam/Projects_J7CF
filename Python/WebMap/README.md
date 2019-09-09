@@ -3,6 +3,6 @@ World map created with ***folium*** module. The user can see where capitals, sta
 Screenshot below:
 ![](images/map.png)
 
-***UPDATE:*** added legend
+***UPDATE:*** legend added 
 ![](images/map2.png)
 
