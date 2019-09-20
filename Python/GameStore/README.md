@@ -2,4 +2,5 @@ GameStore is an window app based on ***Tkinter*** and ***SQLite3*** frameworks. 
 There are also 5 button functions whcich user can use to insert, update and delete parameters or whole tupels.
 
 Screenshot below:
-[]!(/images/gamestore.png)
+![](images/gamestore.png)
+
