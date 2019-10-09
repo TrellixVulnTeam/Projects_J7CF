@@ -1,0 +1,116 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="gamestore">
+    <div class="col-md-8">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+    </div>
+    <form method="POST" action="" novalidate>
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Game Store</legend>
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    {% if form.title.errors %}
+                    {{ form.title(class = "form-control is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.title.errors %}
+                        <span> {{ error }}</span>
+                        {% endfor%}
+                    </div>
+                    {% else %}
+                    {{ form.title(class = "form-control", placeholder="Title") }}
+                    {% endif %}
+                </div>
+
+                <div class="col-md-4 mb-3">
+
+                    {% if form.rdate.errors %}
+                    {{ form.rdate(class = "form-control is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.rdate.errors %}
+                        <span> {{ error }}</span>
+                        {% endfor%}
+                    </div>
+                    {% else %}
+                    {{ form.rdate(class = "form-control", placeholder = "Released date")}}
+                    {% endif %}
+                </div>
+                <div class="col-md-4 mb-3">
+                    {{ form.search_entry(class="btn btn-outline-info")}}
+
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    {% if form.type.errors %}
+                    {{ form.type(class = "form-control is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.type.errors %}
+                        <span> {{ error }}</span>
+                        {% endfor%}
+                    </div>
+                    {% else %}
+                    {{ form.type(class = "form-control", placeholder = "Type")}}
+                    {% endif %}
+                </div>
+                <div class="col-md-4 mb-3">
+                    {% if form.company.errors %}
+                    {{ form.company(class = "form-control is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.company.errors %}
+                        <span> {{ error }}</span>
+                        {% endfor%}
+                    </div>
+                    {% else %}
+                    {{ form.company(class = "form-control", placeholder = "Company")}}
+                    {% endif %}
+                </div>
+                <div class="col-md-4 mb-3">
+                    {{ form.add_entry(class="btn btn-outline-info")}}
+                    {{ form.update_selected(class="btn btn-outline-info")}}
+                    {{ form.delete_selected(class="btn btn-outline-info")}}
+                </div>
+            </div>
+            <div class="form-group">
+                <label>{{ form.table.label }}</label>
+                <div class="form-row">
+                    {{ form.table( multiple=True, style="width: 1380px; height: 200px;") }}
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+
+                    {{ form.view_all(class="btn btn-outline-info" )}}
+
+                </div>
+
+                <div class="col-md-4 mb-3">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="float-right">
+                        {{ form.delete_all(class="btn btn-outline-info")}}
+                    </div>
+                </div>
+
+                <a href="https://github.com/radekska/Projects/tree/master/Python/GameStore"
+                   class="badge badge-primary">Github repository<br></a>
+
+            </div>
+
+        </fieldset>
+    </form>
+
+</div>
+{% endblock %}
+
+

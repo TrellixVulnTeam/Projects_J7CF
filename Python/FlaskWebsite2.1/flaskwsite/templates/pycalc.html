@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="pycalc">
+        <div class="col-md-8">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+    </div>
+    <form method="POST" action="" novalidate>
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Python Calculator</legend>
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    {{ form.user_input(class = "form-control" , style="width: 400px", placeholder = "Calculations...")}}
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <div class="btn-group" role="group" aria-label="Basic example" style=" height: 50px">
+                        {{ form.button_7(class="btn btn-outline-primary btn-lg", style="width: 80px; height: 50px") }}
+                        {{ form.button_8(class="btn btn-outline-primary btn-lg", style="width: 80px; height: 50px") }}
+                        {{ form.button_9(class="btn btn-outline-primary btn-lg", style="width: 80px; height: 50px") }}
+                        {{ form.button_subtract(class="btn btn-outline-secondary btn-lg", style="width: 80px; height:
+                        50px") }}
+                        {{ form.button_clear(class="btn btn-outline-danger btn-lg", style="width: 80px; height:
+                        50px") }}
+
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <div class="btn-group" role="group" aria-label="Basic example" style=" height: 50px">
+                        {{ form.button_4(class="btn btn-outline-primary btn-lg", style="width: 80px; height: 50px") }}
+                        {{ form.button_5(class="btn btn-outline-primary btn-lg", style="width: 80px; height: 50px") }}
+                        {{ form.button_6(class="btn btn-outline-primary btn-lg", style="width: 80px; height: 50px") }}
+                        {{ form.button_divide(class="btn btn-outline-secondary btn-lg", style="width: 80px; height:
+                        50px") }}
+                        {{ form.button_multiply(class="btn btn-outline-secondary btn-lg", style="width: 80px; height:
+                        50px") }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <div class="btn-group" role="group" aria-label="Basic example" style=" height: 50px">
+
+                        {{ form.button_1(class="btn btn-outline-primary btn-lg", style="width: 80px; height: 50px") }}
+                        {{ form.button_2(class="btn btn-outline-primary btn-lg", style="width: 80px; height: 50px") }}
+                        {{ form.button_3(class="btn btn-outline-primary btn-lg", style="width: 80px; height: 50px") }}
+                        {{ form.button_add(class="btn btn-outline-secondary btn-lg", style="width: 80px; height:
+                        50px") }}
+                        {{ form.button_percent(class="btn btn-outline-secondary btn-lg", style="width: 80px; height:
+                        50px") }}
+
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <div class="btn-group" role="group" aria-label="Basic example" style=" height: 50px">
+
+                        {{ form.button_pm(class="btn btn-outline-primary btn-lg", style="width: 80px; height: 50px") }}
+                        {{ form.button_0(class="btn btn-outline-primary btn-lg", style="width: 80px; height: 50px") }}
+                        {{ form.button_dot(class="btn btn-outline-primary btn-lg", style="width: 80px; height: 50px") }}
+                        {{ form.button_eq(class="btn btn-outline-success btn-lg", style="width: 160px; height:
+                        50px") }}
+
+                    </div>
+                </div>
+            </div>
+            <a href="https://github.com/radekska/Projects/tree/master/Python/PyCalc"
+               class="badge badge-primary">Github repository<br></a>
+        </fieldset>
+    </form>
+</div>
+{% endblock %}

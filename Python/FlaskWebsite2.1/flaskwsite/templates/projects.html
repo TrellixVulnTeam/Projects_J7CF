@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="projects">
+    <h1>My very first Python projects</h1>
+    <li><a href="{{ url_for('pycalc') }}">PyCalc - Python Calculator</a></li>
+    <li><a href="{{ url_for('map') }}">Folium Web Map</a></li>
+</div>
+{% endblock %}

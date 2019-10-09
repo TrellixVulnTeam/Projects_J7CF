@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="home">
+    <h1>Homepage</h1>
+    <p>Welcome to my first web page running on Heroku server! Website is based on Flask framework. To stylize the page I used Bootstrap CSS.
+        <br>Also, all projects available on website or in GitHub repository were written in Python.
+        <br>Don't be afraid to check out my content in Navbar menu!
+    </p>
+
+    <div class="row">
+        <div class="column" style="padding-right: 20px">
+            <a href="https://www.python.org/">
+                <img class="mw-100; rounded" src="/static/photos/python-logo.png">
+            </a>
+        </div>
+        <div class="column">
+            <a href="https://www.heroku.com/platform">
+                <img class="mw-100; rounded" src="/static/photos/heroku1.png" alt="">
+            </a>
+
+            <a href="https://getbootstrap.com/">
+                <img class="mw-100; rounded" src="/static/photos/bootstrap.jpg" alt="">
+            </a>
+
+        </div>
+        <div class="column">
+            <a href="https://getbootstrap.com/">
+                <img class="mw-100; rounded" src="/static/photos/flask.png" alt="">
+            </a>
+        </div>
+        <div class="column">
+
+            <a href="https://getbootstrap.com/">
+                <img class="mw-100; rounded" src="/static/photos/html.png" alt="">
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+

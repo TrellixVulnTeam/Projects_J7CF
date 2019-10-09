@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="englishdict">
+    <h1>English Dictionary<br></h1>
+    <form action="/projects/englishdict/word" method="POST">
+        Find a word in English Dictionary: <input name="text">
+        <input type="submit" value="Find">
+    </form>
+    <br>
+    <p><span style="background-color: #FFFF00">{{word}}</span></p>
+    <p>{{definition}}</p>
+    <a href="https://github.com/radekska/Projects/tree/master/Python/EnglishDictionary" class="badge badge-primary">Github repository<br></a>
+</div>
+{% endblock %}
+
+
