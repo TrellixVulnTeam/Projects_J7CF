@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="home">
+    <div class="text-center">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="row justify-content-center">
+            <div class="col-3">
+            <div class="alert alert-{{ category }}" role="alert">
+                {{ message }}
+            </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+</div>
+<form method="POST" action="">
+
+    <fieldset class="form-group">
+
+        <div class="text-center">
+            <h1> Collecting heights</h1>
+            <p>Please fill the entries to get population statistics on height</p>
+        </div>
+
+        <div class="text-center">
+            {{ form.email_addr( class ="form-control-md", placeholder="Your email address", style = "margin-bottom:
+            10px;" )}}
+        </div>
+
+        <div class="text-center">
+            {{ form.height(class ="form-control-md", placeholder="Your height", style = "margin-bottom: 10px;") }}
+        </div>
+        <div class="text-center">
+            {{ form.submit(class="btn btn-outline-secondary btn-lg")}}
+        </div>
+    </fieldset>
+</form>
+</div>
+
+{% endblock %}
