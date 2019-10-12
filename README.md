@@ -1,2 +1,2 @@
 # Projects
-![](images/certificate.jpg)
+![](Python/images/certificate.jpg)
