@@ -1,0 +1,56 @@
+[
+  {
+    "tittle": "Borderlands",
+    "rdate": "2012",
+    "type": "FPS",
+    "company": "2K Games"
+  },
+  {
+    "tittle": "Borderlands 2",
+    "rdate": "2015",
+    "type": "FPS",
+    "company": "2K Games"
+  },
+  {
+    "tittle": "Borderlands 3",
+    "rdate": "2019",
+    "type": "FPS",
+    "company": "2K Games"
+  },
+  {
+    "tittle": "Wiedzmin 2",
+    "rdate": "2010",
+    "type": "RPG",
+    "company": "CD Projekt Red"
+  },
+  {
+    "tittle": "Wiedzmin 1",
+    "rdate": "2007",
+    "type": "RPG",
+    "company": "CD Projekt Red"
+  },
+  {
+    "tittle": "Fifa 15",
+    "rdate": "2015",
+    "type": "Sports",
+    "company": "FPS"
+  },
+  {
+    "tittle": "Fifa 16",
+    "rdate": "2016",
+    "type": "Sports",
+    "company": "FPS"
+  },
+  {
+    "tittle": "Fifa 17",
+    "rdate": "2017",
+    "type": "Sports",
+    "company": "FPS"
+  },
+      {
+      "tittle": "Fifa 18",
+      "rdate": "2018",
+      "type": "Sports",
+      "company": "FPS"
+    }
+]
