@@ -6,6 +6,6 @@ Screenshot below:
 ![](images/pyshark.png)
 
 
-*update: IPv6 support addded, changed into dark mode
+*update: IPv6 support addded, changed into dark mode *
 
 ![](images/pyshark_dark.png)
