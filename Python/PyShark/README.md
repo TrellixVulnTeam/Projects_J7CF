@@ -6,6 +6,11 @@ Screenshot below:
 ![](images/pyshark.png)
 
 
-*update: IPv6 support addded, changed into dark mode*
+*update 1: IPv6 support addded, changed into dark mode*
 
 ![](images/pyshark_dark.png)
+
+*update 2: SCTP support added and filtring options*
+
+![](images/pyshark_dark2.0.png)
+
