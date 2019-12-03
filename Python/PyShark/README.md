@@ -4,3 +4,8 @@ PyShark is a GUI pacekt sniffer based on network RAW sockets. Frontend was devel
 
 Screenshot below:
 ![](images/pyshark.png)
+
+
+*update: IPv6 support addded, changed into dark mode*
+
+![](images/pyshark_dark.png)
