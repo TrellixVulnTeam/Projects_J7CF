@@ -1,3 +1,5 @@
+import sys
+import time
 import threading
 import tkinter as tk
 from tkinter import ttk
@@ -17,24 +19,46 @@ class AppWindow(object):
         self.master_frame.grid_rowconfigure(3, weight=1)
 
     def add_filter_fields(self):
-        filter_frame = tk.Frame(self.master_frame, bg="gray13")
-        filter_frame.grid(row=1, column=0, sticky=tk.EW)
+        filter_frame = tk.Frame(self.master_frame, bg="gray13", pady=10)
+        filter_frame.grid(row=2, column=0, sticky=tk.NSEW)
+
+        ip_options = ["All", "IPv4", "IPv6"]
+        tprotocol_options = ["All", "TCP", "UDP", "ICMP", "SCTP"]
+
+        self.choice_ip = tk.StringVar(filter_frame)
+        self.choice_ip.set(ip_options[0])  # default value
+
+        self.choice_prot = tk.StringVar(filter_frame)
+        self.choice_prot.set(tprotocol_options[0])  # default value
+
+        filter_label = tk.Label(filter_frame, text="Filter by:", font=("Courier", 12), bg='grey13', foreground="gray99")
+        filter_label.grid(row=0, column=0, padx=10)
+
+        filter_menu_ip = tk.OptionMenu(filter_frame, self.choice_ip, *ip_options)
+        filter_menu_ip.grid(row=0, column=1, padx=10)
+        filter_menu_ip.config(font=("Courier", 12), bg='grey13', width=12, foreground="gray99")
+        filter_menu_ip['menu'].config(font=("Courier", 12), bg='grey13', foreground="gray99")
+
+        filter_menu_prot = tk.OptionMenu(filter_frame, self.choice_prot, *tprotocol_options)
+        filter_menu_prot.grid(row=0, column=2, padx=10)
+        filter_menu_prot.config(font=("Courier", 12), bg='grey13', width=12, foreground="gray99")
+        filter_menu_prot['menu'].config(font=("Courier", 12), bg='grey13', foreground="gray99")
 
     def add_buttons(self):
         button_frame = tk.Frame(self.master_frame, bg="gray13")
-        button_frame.grid(row=2, column=0, sticky=tk.NSEW)
+        button_frame.grid(row=1, column=0, sticky=tk.NSEW)
         b_run = tk.Button(button_frame, text="Run sniffing", width=12, command=self.sniff_button, font=("Courier", 12),
                           bg="grey13", foreground="gray99")
-        b_run.grid(row=2, column=0, padx=5)
+        b_run.grid(row=1, column=0, padx=5)
         b_stop = tk.Button(button_frame, text="Stop", width=12, command=self.stop_button, font=("Courier", 12),
                            bg="grey13", foreground="gray99")
-        b_stop.grid(row=2, column=1, padx=5)
+        b_stop.grid(row=1, column=1, padx=5)
         b_clear = tk.Button(button_frame, text="Clear ", width=12, command=self.clr_button, font=("Courier", 12),
                             bg="grey13", foreground="gray99")
-        b_clear.grid(row=2, column=2, padx=5)
+        b_clear.grid(row=1, column=2, padx=5)
         b_quit = tk.Button(button_frame, text="Quit", width=12, command=self.quit_button, font=("Courier", 12),
                            bg="grey13", foreground="gray99")
-        b_quit.grid(row=2, column=3, padx=5)
+        b_quit.grid(row=1, column=3, padx=5)
 
         button_frame.grid_rowconfigure(2, weight=1)
         button_frame.grid_columnconfigure(0, weight=1)
@@ -50,7 +74,7 @@ class AppWindow(object):
         self.text_box.grid(row=0, column=0, sticky=tk.NSEW)
 
         style = tk.ttk.Style()
-        style.configure("Treeview", highlightthickness=0, bd=0, font=("Courier", 12), foreground="gray99", rowheight=22,
+        style.configure("Treeview", highlightthickness=0, bd=0, font=("Courier", 12), foreground="gray99", rowheight=25,
                         bg="gray13", fieldbackground="gray13", highlightcolor="gray13")
         style.configure("Treeview.Heading", font=("Courier", 15), background="gray35", foreground="gray1",
                         relief="flat", highlightcolor="gray13")
@@ -95,11 +119,19 @@ class AppWindow(object):
 
     def print_data(self):
         while self.sniffed.thread_kill:
-            for row in self.sniffed.run_sniff().items():
-                self.insert.unpack_and_insert(row, self.text_box, self.sniffed.thread_kill)
+            options = [self.choice_ip.get(), self.choice_prot.get()]
+            data_dict = self.sniffed.run_sniff(options)
+            if data_dict is None:
+                continue
+            else:
+                for row in data_dict.items():
+                    self.insert.unpack_and_insert(row, self.text_box, self.sniffed.thread_kill)
 
     def clr_button(self):
         self.text_box.delete(*self.text_box.get_children())
 
     def quit_button(self):
+        self.sniffed.thread_kill = False
+        time.sleep(2)
         self.master_frame.quit()
+        sys.exit()
