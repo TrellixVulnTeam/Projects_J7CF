@@ -5,7 +5,6 @@ Below you can find my ***Udemy*** and ***SoloLearn*** certificates.
 Feel free to check it all!
 
 [![Image](Python/images/UC-OWPX74FI.jpg)](https://www.udemy.com/course/python-3-deep-dive-part-1/learn/lecture/11284588#overview)
-![](Python/images/certificate.jpg)
+[![Image2](Python/images/certificate.jpg)](https://www.udemy.com/course/the-python-mega-course/learn/lecture/5189234?start=0#overview)
 ![](Python/images/Python_certificate.jpg)
-![](Python/images/UC-OWPX74FI.jpg)
 
