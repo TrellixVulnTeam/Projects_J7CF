@@ -1,6 +1,7 @@
-### Python Projects Portfolio ###
+## Python Projects Portfolio ##
 
-Welcome to my projects portfolio! Feel free to check it all!
+Welcome to my projects portfolio! 
+
 
 ![](Python/images/UC-OWPX74FI.jpg)
 ![](Python/images/certificate.jpg)
