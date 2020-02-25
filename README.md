@@ -1,6 +1,6 @@
 ## Python Projects Portfolio ##
 
-Welcome to my projects repository. All applications were written in ***Python.*** . 
+Welcome to my projects repository. All applications were written in ***Python.***   
 Below you can find my ***Udemy*** and ***SoloLearn*** certificates.  
 Feel free to check it all!
 
